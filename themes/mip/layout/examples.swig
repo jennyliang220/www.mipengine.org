@@ -15,7 +15,7 @@
               <header class="article-header">
                 <h1 class="article-title">{{ page.title }}</h1>
                 <a href="{{ raw_link(page.source) }}" class="article-edit-link" title="点击编辑该页面">
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil"></i>编辑
                 </a>
               </header>
               <div class="examples-article-content markdown-body">
@@ -37,7 +37,7 @@
 {% endblock content %}
 
 {% block footer_after %}
-    <script src="https://mipcache.bdstatic.com/static/v1/mip-semi-fixed/mip-semi-fixed.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-semi-fixed/mip-semi-fixed.js"></script>
     {% if page.setting and page.setting.preview %}
         <div id="example-lightbox">
             <button role="button" class="close-btn"></button>
@@ -47,6 +47,6 @@
         <script type="application/json" id="mip-components-config">
             {{ page.setting | json }}
         </script>
-        <script src="https://mipcache.bdstatic.com/extensions/platform/v1/mip-mipengine-preview-v2/mip-mipengine-preview-v2.js"></script>
+        <script src="https://c.mipcdn.com/extensions/platform/v1/mip-mipengine-preview-v2/mip-mipengine-preview-v2.js"></script>
     {% endif %}
 {% endblock footer_after %}

@@ -1,4 +1,22 @@
 [{
+    "time": "2017-11-28",
+    "type": "widget mip-map",
+    "title": "新增 mip-map 地图组件，支持位置定位、地图控件加载、marker 定位点弹窗信息定制等功能",
+    "version": "1",
+    "changelog": [],
+    "link": {
+        "文档": "/examples/mip-extensions/mip-map.html"
+    }
+},{
+    "time": "2017-11-28",
+    "type": "widget mip-stats-cnzz",
+    "title": "mip-stats-cnzz 支持站长自定义节点参数",
+    "version": "1",
+    "changelog": [],
+    "link": {
+        "文档": "https://github.com/mipengine/mip-extensions/blob/master/src/mip-stats-cnzz/README.md"
+    }
+},{
     "time": "2017-11-16",
     "type": "widget mip-lightbox",
     "title": "mip-lightbox弹层组件升级，支持弹出内容区域滚动。",
@@ -107,7 +125,7 @@
     "changelog": [],
     "link": {
         "文档": "/examples/mip-extensions/mip-history.html",
-    "github" : "https://github.com/mipengine/mip-extensions/tree/master/mip-history"
+    "github" : "https://github.com/mipengine/mip-extensions/tree/master/src/mip-history"
     }
 },{
     "time": "2017-03-10",
@@ -327,7 +345,7 @@
     "changelog": [],
     "link": {
         "文档": "/examples/mip-ad/mip-ad-ssp.html",
-        "引用地址": "https://mipcache.bdstatic.com/static/v1/mip-ad/mip-ad.js"
+        "引用地址": "https://c.mipcdn.com/static/v1/mip-ad/mip-ad.js"
     }
 },{
     "time": "2016-12-01",
@@ -401,7 +419,7 @@
     "changelog": ["支持响应式，移动端筛选项展开收起"],
     "link": {
         "文档": "/examples/mip-extensions/mip-filter.html",
-        "github": "https://github.com/mipengine/mip-extensions/tree/master/mip-filter"
+        "github": "https://github.com/mipengine/mip-extensions/tree/master/src/mip-filter"
     }
 },{
     "time": "2016-11-16",
@@ -411,7 +429,7 @@
     "changelog": ["支持响应式，移动端全屏展开交互"],
     "link": {
         "文档": "/examples/mip-extensions/mip-nav-slidedown.html",
-        "github": "https://github.com/mipengine/mip-extensions/tree/master/mip-nav-slidedown"
+        "github": "https://github.com/mipengine/mip-extensions/tree/master/src/mip-nav-slidedown"
     }
 },{
     "time": "2016-11-14",
@@ -420,7 +438,7 @@
     "version": "1",
     "changelog": ["解决 mipmain.js 升级需要修改版本号的问题", "未来 mipmain.js 仍然可用，但会停止维护"],
     "link": {
-        "引用地址": "https://mipcache.bdstatic.com/static/v1/mip.js"
+        "引用地址": "https://c.mipcdn.com/static/v1/mip.js"
     }
 },{
     "time": "2016-11-14",
@@ -429,7 +447,7 @@
     "version": "1",
     "changelog": ["解决 mipmain.css 升级需要修改版本号的问题", "未来 mipmain.css 仍然可用，但会停止维护"],
     "link": {
-        "引用地址": "https://mipcache.bdstatic.com/static/v1/mip.css"
+        "引用地址": "https://c.mipcdn.com/static/v1/mip.css"
     }
 },{
     "time": "2016-11-14",
@@ -438,7 +456,7 @@
     "version": "1",
     "changelog": ["解决组件升级需要修改版本号的问题", "未来旧有组件仍然可用，但会停止维护，请以现有官网文档版本为准"],
     "link": {
-        "示例引用地址": "https://mipcache.bdstatic.com/static/v1/mip-share/mip-share.js",
+        "示例引用地址": "https://c.mipcdn.com/static/v1/mip-share/mip-share.js",
         "使用demo" : "/doc/01-mip-demo.html"
     }
 },{
@@ -502,7 +520,7 @@
     "version": "1.1.2",
     "changelog": ["内置视频组件升级"],
     "link": {
-        "引用地址": "https://mipcache.bdstatic.com/static/mipmain-v1.1.2.js",
+        "引用地址": "https://c.mipcdn.com/static/mipmain-v1.1.2.js",
         "视频组件": "/examples/mip/mip-video.html"
     }
 },{
