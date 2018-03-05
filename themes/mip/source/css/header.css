@@ -145,6 +145,16 @@ mip-form:focus, mip-form :focus {
     color: rgba(255, 255, 255, 0.6);
     background-color: transparent;
 }
+.layout-index input[type="text"] {
+    border-color: rgba(0, 0, 0, 0.3);
+    color: #333;
+}
+.layout-index input[type="text"]:focus {
+    border-color: rgba(0, 0, 0, 0.6);
+}
+.layout-index .fa {
+    color: #666;
+}
 @media screen and (min-width: 767px) {
     .header-nav {
         display: block;
