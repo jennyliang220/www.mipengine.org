@@ -121,6 +121,30 @@
     color: #666;
     display: block;
 }
+mip-form:focus, mip-form :focus {
+    outline: none;
+}
+.nav-search input[type="text"] {
+    background-color: transparent;
+    color: white;
+    border-radius: 15px;
+    border-color: rgba(255, 255, 255, 0.6);
+    padding: 6px 30px 6px 12px;
+    font-size: 14px;
+}
+.nav-search input[type="text"]:focus {
+    border-color: rgba(255, 255, 255, 1);
+}
+.nav-search .fa-search {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    border: 0;
+    font-size: 20px;
+    padding: 5px;
+    color: rgba(255, 255, 255, 0.6);
+    background-color: transparent;
+}
 @media screen and (min-width: 767px) {
     .header-nav {
         display: block;

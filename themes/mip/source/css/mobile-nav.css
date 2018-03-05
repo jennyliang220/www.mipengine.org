@@ -60,3 +60,18 @@
 .mobile-nav-list > li > span {
     display: none;
 }
+
+/*导航搜索*/
+.mobile-nav-list .nav-search {
+    padding: 10px;
+}
+.mobile-nav-list input[type="text"] {
+    border-color: rgba(0, 0, 0, 0.3);
+    color: #333;
+}
+.mobile-nav-list input[type="text"]:focus {
+    border-color: rgba(0, 0, 0, 0.6);
+}
+.mobile-nav-list .fa {
+    color: #666;
+}

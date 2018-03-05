@@ -29,6 +29,18 @@ hexo.extend.helper.register('nav', function (className) {
         return `<li><a href="${self.url_for(path)}">${title}</a></li>`;
     };
 
+    const searchElement = (() => {
+        const prefix = 'https://www.baidu.com/s?';
+        let elementHtml = `<li>`
+            + `<mip-form class="nav-search" method="get" url="${prefix}">`
+                + `<input type="text" name="wd" placeholder="搜索关键词" autocomplete="off">`
+                + `<input type="hidden" name="si" value="www.mipengine.org">`
+                + `<input type="hidden" name="ct" value="2097152">`
+                + `<button type="submit" value="" class="fa fa-search"></button>`
+            + `</mip-form></li>`;
+        return elementHtml;
+    })();
+
     Object.keys(menu).forEach(title => {
         const path = menu[title];
 
@@ -44,5 +56,5 @@ hexo.extend.helper.register('nav', function (className) {
         result.push('</ul></li>');
     });
 
-    return `<ul class="${className}-nav-list">${result.join('')}</ul>`;
+    return `<ul class="${className}-nav-list">${result.join('')}${searchElement}</ul>`;
 });

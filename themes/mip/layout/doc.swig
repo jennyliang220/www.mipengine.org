@@ -1,7 +1,7 @@
 {% extends 'mip.layout.swig' %}
 
 {% block title %}
-    <title>MIP 文档_{{ config.title }}{% if page.title %} | {{ page.title }}{% endif %}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %} MIP 文档_{{ config.title }}</title>
 {% endblock title %}
 
 {% block style %}
