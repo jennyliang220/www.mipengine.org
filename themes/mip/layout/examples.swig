@@ -1,7 +1,7 @@
 {% extends 'mip.layout.swig' %}
 
 {% block title %}
-    <title>{{ page.setting.name }}文档示例 | MIP官网(Mobile Instant Pages)</title>
+    <title>{{ page.setting.name }}文档示例_MIP官网(Mobile Instant Pages)</title>
 {% endblock title %}
 
 {% block style %}

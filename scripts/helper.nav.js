@@ -30,7 +30,11 @@ hexo.extend.helper.register('nav', function (className) {
     };
 
     const searchElement = (() => {
-        const prefix = 'https://www.baidu.com/s?';
+        let prefix = 'https://www.baidu.com/s?';
+        if (className === 'mobile') {
+            // 移动端使用m.baidu.com 搜索，否则si ct 参数无效
+            prefix = 'https://m.baidu.com/s?';
+        }
         let elementHtml = `<li>`
             + `<mip-form class="nav-search" method="get" url="${prefix}">`
                 + `<input type="text" name="wd" placeholder="搜索关键词" autocomplete="off">`
