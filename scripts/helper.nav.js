@@ -35,13 +35,13 @@ hexo.extend.helper.register('nav', function (className) {
             // 移动端使用m.baidu.com 搜索，否则si ct 参数无效
             prefix = 'https://m.baidu.com/s?';
         }
-        let elementHtml = `<li>`
+        let elementHtml = '<li>'
             + `<mip-form class="nav-search" method="get" url="${prefix}">`
-                + `<input type="text" name="wd" placeholder="搜索关键词" autocomplete="off">`
-                + `<input type="hidden" name="si" value="www.mipengine.org">`
-                + `<input type="hidden" name="ct" value="2097152">`
-                + `<button type="submit" value="" class="fa fa-search"></button>`
-            + `</mip-form></li>`;
+                + '<input type="text" name="wd" placeholder="搜索关键词" autocomplete="off">'
+                + '<input type="hidden" name="si" value="www.mipengine.org">'
+                + '<input type="hidden" name="ct" value="2097152">'
+                + '<button type="submit" value="" class="fa fa-search"></button>'
+            + '</mip-form></li>';
         return elementHtml;
     })();
 
