@@ -123,7 +123,7 @@ define(function (require) {
 ```
 
 ```js
-// mip-filter.js 抛出 'filt' 事件（event），在 DOM 中通过 on 绑定 
+// mip-filter.js 抛出 'filt' 事件（event），在 DOM 中通过 on 绑定。
 define(function (require) {
     var customEle = require('customElement').create();
     var viewer = require('viewer');
@@ -141,7 +141,8 @@ define(function (require) {
 define(function (require) {
     var customEle = require('customElement').create();
     var viewer = require('viewer');
-    customEle.prototype.firstInviewCallback = function () {
+    // 尽早绑定事件，写在 build 声明周期中。
+    customEle.prototype.build = function () {
     	addGotoTopEventHandler(); //组件点击事件监听及处理
     	// 定义 gototop 事件，方便 eventAction 从外部触发。
     	this.addEventAction('gototop', function (event/* 对应的事件对象 */, str /* 事件参数 */) {
