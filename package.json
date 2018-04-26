@@ -1,7 +1,7 @@
 {
   "name": "www.mipengine.org",
   "description": "基于 Hexo 的 MIP 官网站点。",
-  "version": "0.0.29",
+  "version": "0.0.31",
   "hexo": {
     "version": "3.5.0"
   },
@@ -15,9 +15,7 @@
     "prevalidator": "npm run build",
     "preinstall": "node tools/check-node-version.js",
     "postinstall": "npm run sync-components",
-    "commitmsg": "validate-commit-msg",
-    "predeploy": "npm run build",
-    "deploy": "bash tools/deploy.sh"
+    "commitmsg": "validate-commit-msg"
   },
   "config": {
     "validate-commit-msg": {
