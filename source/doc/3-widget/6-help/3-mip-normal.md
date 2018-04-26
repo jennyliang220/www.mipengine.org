@@ -54,6 +54,7 @@ viewer.eventAction.execute(eventName, element, event);
 ### 组件可被外界监听事件（event）
 
 组件 | 事件 | 事件说明
+---- | ---- | ----
 form | submit | 表单提交时触发
 form | submitSuccess | 表单提交成功
 form | submitError | 表单提交失败
