@@ -2,20 +2,21 @@ title: 事件通信
 layout: doc
 ---
 
-MIP 提供了强大的组件DOM通信，组件间通信功能，以解决在[MIP组件开发](https://www.mipengine.org/doc/2-tech/4-mip-widget.html)中遇到的组件交互问题。可以通过 DOM 属性来触发某个 MIP 元素的自定义事件。
+MIP 提供了强大的组件DOM通信，组件间通信功能，以解决在[MIP组件开发](/doc/2-tech/4-mip-widget.html)中遇到的组件交互问题。可以通过 DOM 属性来触发某个 MIP 元素的自定义事件。
 
 ## 应用场景：
 
 DOM通信：
-	- 点击按钮，弹出层(`<mip-lightbox>`)显示。
-	- 点击按钮，展开折叠元素(`<mip-showmore>`)。
+- 点击按钮，弹出层(`<mip-lightbox>`)显示。
+- 点击按钮，展开折叠元素(`<mip-showmore>`)。
+
 组件间通信：
-	- 当用户触发筛选(`<mip-filter>`)时，页面返回顶部(`<mip-gototop>`)。
+- 当用户触发筛选(`<mip-filter>`)时，页面返回顶部(`<mip-gototop>`)。
 
 ## 语法
 
 - `on="eventName:id.action"`
-- `on="eventName:id.action(args1,args2)"`
+- `on="eventName:id.action(args)"`
 
 ### 组件内注册监听行为（`action`）：
 ```js
@@ -41,23 +42,21 @@ viewer.eventAction.execute(eventName, element, event);
 
 ## 目前支持事件
 
-### 全局事件(event)
-目前手势事件支持全局触发，具体参数详见[手势](https://www.mipengine.org/doc/3-widget/6-help/2-gesture.html)。
-用法示例：
+### 1. 全局事件（event）
+目前点击事件支持全局触发。用法示例：
 
 ```html
 <div on="tap:id.custom_event">单击时触发</div>
-<div on="doubletap:id.custom_event">双击时触发</div>
-<div on="swipe:id.custom_event">横划时触发</div>
 ```
 
-### 组件可被外界监听事件（event）
+### 2. 组件可被外界监听事件（event）
 
 组件 | 事件 | 事件说明
 ---- | ---- | ----
-form | submit | 表单提交时触发
-form | submitSuccess | 表单提交成功
-form | submitError | 表单提交失败
+mip-form | submit | 表单提交时触发
+mip-form | submitSuccess | 表单提交成功
+mip-form | submitError | 表单提交失败
+mip-form input | change | 输入框内容变化
 
 用法示例：
 
@@ -65,7 +64,7 @@ form | submitError | 表单提交失败
 <mip-form on="submitSuccess:xxx.xxx">表单提交成功后触发xx</mip-form>
 ```
 
-### 组件可被触发的事件（action）
+### 3. 组件可被触发的事件（action）
 
 组件 | 事件 | 事件说明
 ---- | ---- | ----
@@ -91,9 +90,7 @@ mip-list | more | 异步加载更多数据
 <mip-test id="test"></mip-test>
 
 <div on="tap:test.custom_event">不带参数</div>
-
 <div on="tap:test.custom_event(test_button)">带参数</div>
-
 <div on="tap:test.custom_event(test_button) tap:test.custom_event(test_button1)">多个事件</div>
 ```
 
@@ -101,7 +98,7 @@ mip-list | more | 异步加载更多数据
 // mip-test.js
 define(function (require) {
     var customEle = require('customElement').create();
-    customEle.prototype.build = function () {
+    customEle.prototype.firstInviewCallback = function () {
         // 绑定事件，其它元素可通过 on='xxx' 触发
         this.addEventAction('custom_event', function (event/* 对应的事件对象 */, str /* 事件参数 */) {
             console.log(str); // undefined or 'test_button' or 'test_button1'
@@ -110,7 +107,7 @@ define(function (require) {
     return customEle;
 });
 ```
-[info] DOM 点击通信可运行示例见 [mip-showmore 示例](https://www.mipengine.org/examples/mip-extensions/mip-showmore.html)。
+[info] DOM 点击通信可运行示例见 [mip-showmore 示例](/examples/mip-extensions/mip-showmore.html)。
 
 ### 示例2：使用 DOM 属性实现组件间通信
 
@@ -126,7 +123,7 @@ define(function (require) {
 ```
 
 ```js
-// mip-filter.js 抛出 'filt' 事件，在 DOM 中通过 on 绑定 
+// mip-filter.js 抛出 'filt' 事件（event），在 DOM 中通过 on 绑定 
 define(function (require) {
     var customEle = require('customElement').create();
     var viewer = require('viewer');
@@ -140,7 +137,7 @@ define(function (require) {
     return customEle;
 });
 
-// mip-gototop.js 定义 'gototop' 事件，方便 eventAction 从外部触发。
+// mip-gototop.js 定义 'gototop' 操作(action)，方便 eventAction 从外部触发。
 define(function (require) {
     var customEle = require('customElement').create();
     var viewer = require('viewer');
@@ -157,11 +154,10 @@ define(function (require) {
 
 ## 注意事项
 1. HTML 属性中的`on`值空格用于分割多个事件，单个事件内部不能出现空格。
-
 ```
 <div on="tap:id01.custom_event1 tap:id02.custom_event2">多个事件</div>
 ```
-2. 传的参数将变成字符串，如：on="tap:id.action(1,2,3)" ，得到的不是 1 ，而是 "1" 。
+2. 传的参数将变成字符串，如 `on="tap:id.action(1,2,3)"`，得到的不是`1` ，而是`"1"`。
 3. 事件将向上冒泡传播，如单击示例中`mip-xx1`, 两个标签的`tap`事件都会触发。
 ```
 <mip-xx1 on="tap:id.action">
